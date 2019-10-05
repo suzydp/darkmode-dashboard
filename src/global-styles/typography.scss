@@ -1,0 +1,93 @@
+// Font family
+$system-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+// Headings
+// mixins are group of css styles
+@mixin heading-1($color: $white) {
+  font-size: 80px;
+  line-height: 86px;
+  font-weight: bold;
+  color: $color;
+}
+
+@mixin heading-2($color: $white) {
+  font-size: 60px;
+  line-height: 86px;
+  font-weight: bold;
+  color: $color;
+}
+
+@mixin heading-3($color: $white) {
+  font-size: 30px;
+  line-height: 43px;
+  font-weight: bold;
+  color: $color;
+}
+
+@mixin heading-4($color: $white) {
+  font-size: 24px;
+  line-height: 34px;
+  font-weight: bold;
+  color: $color;
+}
+
+
+// Body text
+// % - placeholder. "%" inside mixin will extend this code below
+
+// Large text
+%large {
+  font-size: 24px;
+  line-height: 37px;
+}
+
+@mixin large-text($color: $white) {
+  // invoke extended css
+  @extend %large;
+  color: $color
+}
+
+// mixin can contain arguements
+// inside parameter can be default value
+@mixin large-text-bold($color: $white) {
+  @extend %large;
+  font-weight: bold;
+  color: $color;
+}
+
+// Medium text
+%medium {
+  font-size: 20px;
+  line-height: 31px;
+}
+
+@mixin medium-text($color: $white) {
+  @extend %medium;
+}
+
+@mixin medium-text-bold($color: $white) {
+  @extend %medium;
+  font-weight: bold;
+  color: $color;
+}
+
+// caption
+@mixin caption($color: $white) {
+  font-size: 18px;
+  line-height: 150%;
+  text-transform: uppercase;
+}
+
+// normal-text
+@mixin normal-text($color: $white) {
+  font-size: 16px;
+  line-height: 150%;
+}
+
+// small-text
+@mixin small-text($color: $white) {
+  font-size: 12px;
+  line-height: 150%;
+}
+
+
