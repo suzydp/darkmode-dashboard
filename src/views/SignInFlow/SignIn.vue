@@ -9,11 +9,11 @@
       <!-- if isDarkMode is true, apply images for darkmode -->
       <img src="@/assets/DCHQ.svg" v-if="isDarkMode">
       <img src="@/assets/DCHQ-dark.svg" v-if="!isDarkMode">
-      <h4>Sign into Design+Code HQ</h4>
-      <input type="email" placeholder="Email">
-      <input type="password" placeholder="Password">
+      <h4 :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Sign into Design+Code HQ</h4>
+      <input :class="{'light-field': isDarkMode, 'dark-field': !isDarkMode}" type="email" placeholder="Email">
+      <input :class="{'light-field': isDarkMode, 'dark-field': !isDarkMode}" type="password" placeholder="Password">
       <button>Sign In</button>
-      <router-link to="/recover">Forgot your password?</router-link>
+      <router-link :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}" to="/recover">Forgot your password?</router-link>
       <!-- !! @ is for add event listener !! -->
       <button @click="toggleDarkMode" >Toggle</button>
     </div>
@@ -111,8 +111,34 @@ button {
   min-height: 100vh;
 }
 
+.light-text {
+  color: $white;
+}
+
+.dark-text {
+  color: $black;
+}
+
 .login {
   width: 400px;
+}
+
+.light-field {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+.dark-field {
+  background: rgba(198, 208, 235, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.3);
+  }
 }
 
 .request {
