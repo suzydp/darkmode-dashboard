@@ -20,12 +20,10 @@
   import { Component, Vue } from "vue-property-decorator";
   import Header from "@/components/Header.vue";
 
-  @Component({
+  export default {
     components: {
       Header
-    }
-  })
-  export default {
+    },
     name: "SignIn",
     // init state
     data: {
@@ -40,3 +38,25 @@
     }
   };
 </script>
+
+<style scoped lang="scss">
+@import "@/../../../global-styles/colors.scss/";
+@import "@/../../../global-styles/typography.scss";
+
+h4 {
+  margin: 0;
+  line-height: 34px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+}
+
+.light-background {
+  background-color: $light-gray;
+}
+
+.dark-background {
+  background-color: $dark-blue;
+}
+
+</style>
