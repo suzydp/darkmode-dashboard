@@ -1,12 +1,14 @@
 <template>
   <!-- declare bind with : -->
   <div class="container" :class="{'light-background': !isDarkMode, 'dark-backgrond': isDarkMode}">
-    <div class="request">
+    <div class="request" :class="{'light-request': isDarkMode, 'dark-request': !isDarkMode}">
       Don't have a Design+Code HQ account?
       <router-link to="/request">Request an account</router-link>
     </div>
     <div class="login">
-      <img src="@/assets/DCHQ.svg">
+      <!-- if isDarkMode is true, apply images for darkmode -->
+      <img src="@/assets/DCHQ.svg" v-if="isDarkMode">
+      <img src="@/assets/DCHQ-dark.svg" v-if="!isDarkMode">
       <h4>Sign into Design+Code HQ</h4>
       <input type="email" placeholder="Email">
       <input type="password" placeholder="Password">
@@ -124,4 +126,19 @@ button {
   }
 }
 
+.light-request {
+  color: rgba(255, 255, 255, 0.3);
+
+  a {
+    color: white;
+  }
+}
+
+.dark-request {
+  color: rgba(0, 0, 0, 0.3);
+
+  a {
+    color: $black;
+  }
+}
 </style>
