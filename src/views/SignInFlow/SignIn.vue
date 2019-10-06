@@ -11,6 +11,8 @@
       <input type="password" placeholder="Password">
       <button>Sign In</button>
       <router-link to="/recover">Forgot your password?</router-link>
+      <!-- !! @ is for add event listener !! -->
+      <button @click="toggleDarkMode" >Toggle</button>
     </div>
   </div>
 </template>
@@ -23,5 +25,18 @@
       Header
     }
   })
-  export default class SignIn extends Vue {}
+  export default {
+    name: "SignIn",
+    // init state
+    data: {
+      isDarkMode: true
+    },
+    methods: {
+      // functions triggered in vue component
+      toggleDarkMode() {
+        this.isDarkMode = !this.isDarkMode;
+        alert(this.isDarkMode);
+      }
+    }
+  };
 </script>
