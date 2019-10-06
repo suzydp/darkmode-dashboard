@@ -5,6 +5,10 @@
 </template>
 
 <style lang="scss">
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
 body {
   background: $dark-blue;
 }
@@ -33,28 +37,6 @@ p {
     &.router-link-exact-active {
       color: $white;
     }
-  }
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
-
-.login {
-  width: 400px;
-}
-
-.request {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  color: rgba(255, 255, 255, 0.3);
-
-  a {
-    color: white;
   }
 }
 </style>

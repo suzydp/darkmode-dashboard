@@ -1,5 +1,6 @@
 <template>
-  <div class="container">
+  <!-- declare bind with : -->
+  <div class="container" :class="{'light-background': !isDarkMode, 'dark-backgrond': isDarkMode}">
     <div class="request">
       Don't have a Design+Code HQ account?
       <router-link to="/request">Request an account</router-link>
@@ -26,22 +27,26 @@
     },
     name: "SignIn",
     // init state
-    data: {
-      isDarkMode: true
+    data() {
+    // below works same
+    // data: function(){
+      return {
+        isDarkMode: true
+      };
     },
     methods: {
       // functions triggered in vue component
       toggleDarkMode() {
+        // this=this components
         this.isDarkMode = !this.isDarkMode;
-        alert(this.isDarkMode);
+        document.body.style.background = this.isDarkMode ? "#212c4f" : "f0f3f5";
+        // alert(this.isDarkMode);
       }
     }
   };
 </script>
 
 <style scoped lang="scss">
-@import "@/../../../global-styles/colors.scss/";
-@import "@/../../../global-styles/typography.scss";
 
 h4 {
   margin: 0;
