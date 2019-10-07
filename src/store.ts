@@ -4,8 +4,10 @@ import Vuex, { mapActions } from "vuex";
 Vue.use(Vuex);
 
 // Init State
+// Add initial state(isDarkMode: true) to local storage
+const userSelectedDarkMode = window.localStorage.getItem("isDarkMode") === "true";
 const state = {
-  isDarkMode: true
+  isDarkMode: userSelectedDarkMode
 }
 
 // Init getters
