@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Vuex from "vuex";
+import Vuex, { mapActions } from "vuex";
 
 Vue.use(Vuex);
 
@@ -21,10 +21,14 @@ const mutations = {
     // if darkmode was enable, we gotta toggle darkmode to false
     if(state.isDarkMode === true) {
       state.isDarkMode = false;
-      document.body.style.background = "212c4f";
+      document.body.style.background = "#212c4f";
+      // add local storage to make this state persistent
+      window.localStorage.setItem("isDarkMode", "true");
     } else {
       state.isDarkMode = true;
-      document.body.style.background = "f0f3f5";
+      document.body.style.background = "#f0f3f5";
+      // add local storage to make this state persistent
+      window.localStorage.setItem("isDarkMode", "false");
     }
   }
 }
@@ -32,6 +36,6 @@ const mutations = {
 export default new Vuex.Store({
   state: state,
   getters: getters,
-  mutations: {},
-  actions: {}
+  mutations: mutations,
+  actions: {},
 });
