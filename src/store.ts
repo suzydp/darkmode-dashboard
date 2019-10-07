@@ -4,6 +4,10 @@ import Vuex, { mapActions } from "vuex";
 Vue.use(Vuex);
 
 // Init State
+if(window.matchMedia("(prefers-color-scheme: dark)").matches) {
+  window.localStorage.setItem("isDarkMode", "true");
+}
+
 // Add initial state(isDarkMode: true) to local storage
 const userSelectedDarkMode = window.localStorage.getItem("isDarkMode") === "true";
 const state = {
