@@ -29,20 +29,16 @@
     },
     name: "SignIn",
     // init state
-    data() {
-    // below works same
-    // data: function(){
-      return {
-        isDarkMode: true
-      };
+    computed: {
+      isDarkMode() {
+        return this.$store.getters.isDarkMode
+      }
     },
     methods: {
       // functions triggered in vue component
       toggleDarkMode() {
         // this=this components
-        this.isDarkMode = !this.isDarkMode;
-        document.body.style.background = this.isDarkMode ? "#212c4f" : "f0f3f5";
-        // alert(this.isDarkMode);
+        this.$store.commit("toggleDarkMode");
       }
     }
   };
