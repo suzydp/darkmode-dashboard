@@ -21,6 +21,12 @@
     mounted() {
       this.show = true;
     },
+    // needs to apply the state which stored to computed
+    computed: {
+      isDarkMode() {
+        return this.$store.getters.isDarkMode
+      }
+    },
   }
 </script>
 
