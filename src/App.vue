@@ -33,6 +33,19 @@ p {
   @include large-text-bold($purple);
 }
 
+button {
+  background: #56ccf2;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: none;
+  height: 60px;
+  width: 100%;
+  font-size: 20px;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+
 #app {
   font-family: $system-font-family;
   -webkit-font-smoothing: antialiased;

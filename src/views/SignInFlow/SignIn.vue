@@ -11,8 +11,7 @@
       <input :class="{'light-field': isDarkMode, 'dark-field': !isDarkMode}" type="password" placeholder="Password">
       <button>Sign In</button>
       <router-link :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}" to="/recover">Forgot your password?</router-link>
-      <!-- !! @ is for add event listener !! -->
-      <button @click="toggleDarkMode" >Toggle</button>
+      <ThemeSwitch />
     </div>
   </div>
 </template>
@@ -20,6 +19,7 @@
   import { Component, Vue } from "vue-property-decorator";
   import Header from "@/components/Header.vue";
   import RequestAccount from "@/components/RequestAccount.vue";
+  import ThemeSwitch from "@/components/ThemeSwitch.vue";
 
   export default {
     name: "SignIn",
@@ -30,15 +30,12 @@
       }
     },
     methods: {
-      // functions triggered in vue component
-      toggleDarkMode() {
-        // this=this components
-        this.$store.commit("toggleDarkMode");
-      }
+      // method toggleDarkMode() is only necessary to switch darkmode
     },
     components: {
       Header,
-      RequestAccount
+      RequestAccount,
+      ThemeSwitch,
     },
   };
 </script>
@@ -76,19 +73,6 @@ input {
   &::placeholder {
     color: rgba(255, 255, 255, 0.3);
   }
-}
-
-button {
-  background: #56ccf2;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  border: none;
-  height: 60px;
-  width: 100%;
-  font-size: 20px;
-  color: white;
-  margin-top: 20px;
-  margin-bottom: 40px;
 }
 
 .light-background {
