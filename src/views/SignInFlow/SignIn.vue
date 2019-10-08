@@ -1,16 +1,7 @@
 <template>
   <!-- declare bind with : -->
   <div class="container" :class="{'light-background': !isDarkMode, 'dark-backgrond': isDarkMode}">
-    <!-- transition is an element allows to apply transition by Vue. you have to have either/both enter-active-class and leave-active-class -->
-    <transition name="slide-in-right" enter-active-class="animated slideInRight">
-      <div 
-        v-show="show"
-        class="request" 
-        :class="{'light-request': isDarkMode, 'dark-request': !isDarkMode}">
-        Don't have a Design+Code HQ account?
-        <router-link to="/request">Request an account</router-link>
-      </div>
-    </transition>
+    <RequestAccount />
     <div class="login">
       <!-- if isDarkMode is true, apply images for darkmode -->
       <img src="@/assets/DCHQ.svg" v-if="isDarkMode">
@@ -28,20 +19,10 @@
 <script lang="ts">
   import { Component, Vue } from "vue-property-decorator";
   import Header from "@/components/Header.vue";
+  import RequestAccount from "@/components/RequestAccount.vue";
 
   export default {
-    components: {
-      Header
-    },
     name: "SignIn",
-    data() {
-      return {
-        show: false
-      };
-    },
-    mounted() {
-      this.show = true;
-    },
     // init state
     computed: {
       isDarkMode() {
@@ -54,7 +35,11 @@
         // this=this components
         this.$store.commit("toggleDarkMode");
       }
-    }
+    },
+    components: {
+      Header,
+      RequestAccount
+    },
   };
 </script>
 
@@ -148,33 +133,6 @@ button {
 
   &::placeholder {
     color: rgba(0, 0, 0, 0.3);
-  }
-}
-
-.request {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  color: rgba(255, 255, 255, 0.3);
-
-  a {
-    color: white;
-  }
-}
-
-.light-request {
-  color: rgba(255, 255, 255, 0.3);
-
-  a {
-    color: white;
-  }
-}
-
-.dark-request {
-  color: rgba(0, 0, 0, 0.3);
-
-  a {
-    color: $black;
   }
 }
 </style>
