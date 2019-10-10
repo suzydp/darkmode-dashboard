@@ -32,7 +32,7 @@ export default {
   .toggle {
     border-radius: 10px;
     width: 175px;
-    margin: 50px auto;
+    margin: 50px auto 0;
     display: flex;
   }
 

@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <!-- <Header /> -->
+    <Header />
     <h2>Team</h2>
     <div class="cards">
       <transition appear appear-active-class="animated flipInX">
@@ -56,7 +56,7 @@
     }
   };
 </script>
-<style lang="scss" scoped>
+<style scoped lang="scss">
 h2 {
   @include heading-2;
 }
@@ -75,8 +75,8 @@ p {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start; 
+  align-items: center;
+  justify-content: center; 
   margin-left: 25px;
 }
 

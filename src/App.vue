@@ -17,11 +17,11 @@
 </script>
 <style lang="scss">
 * {
-  box-sizing: border-box;
-  margin: 0;
   transition: .8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
 body {
+  margin: 0;
   background: $dark-blue;
 }
 
@@ -83,8 +83,9 @@ button {
   font-family: $system-font-family;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
+  text-align: center;
   color: $white;
+  margin: 40px;
 }
 
 #nav {
