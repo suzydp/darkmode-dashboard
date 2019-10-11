@@ -85,7 +85,7 @@ button {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: $white;
-  margin: 40px;
+  margin: 0;
 }
 
 #nav {
