@@ -4,57 +4,113 @@
     <h2>Team</h2>
     <div class="cards">
       <transition appear appear-active-class="animated flipInX">
-        <a class="card card-1" :class="{'light-card': !isDarkMode, 'dark-card': isDarkMode}">
-          <img class="card-header" :class="{'light-header': !isDarkMode, 'dark-header': isDarkMode}" src="@/assets/slack.svg">
-          <h3 :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Slack</h3>
-          <p :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Messaging app for all team communication.</p>
+        <a
+          class="card card-1"
+          :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+        >
+          <img
+            class="card-header"
+            :class="{ 'light-header': !isDarkMode, 'dark-header': isDarkMode }"
+            src="@/assets/slack.svg"
+          />
+          <h3 :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Slack
+          </h3>
+          <p :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Messaging app for all team communication.
+          </p>
         </a>
       </transition>
       <transition appear appear-active-class="animated flipInX">
-        <a class="card card-2" :class="{'light-card': !isDarkMode, 'dark-card': isDarkMode}">
-          <img class="card-header" :class="{'light-header': !isDarkMode, 'dark-header': isDarkMode}" src="@/assets/notion.svg">
-          <h3 :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Notion</h3>
-          <p :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">All-in-one workspace.</p>
+        <a
+          class="card card-2"
+          :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+        >
+          <img
+            class="card-header"
+            :class="{ 'light-header': !isDarkMode, 'dark-header': isDarkMode }"
+            src="@/assets/notion.svg"
+          />
+          <h3 :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Notion
+          </h3>
+          <p :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            All-in-one workspace.
+          </p>
         </a>
       </transition>
       <transition appear appear-active-class="animated flipInX">
-        <a class="card card-3" :class="{'light-card': !isDarkMode, 'dark-card': isDarkMode}">
-          <img class="card-header" :class="{'light-header': !isDarkMode, 'dark-header': isDarkMode}" src="@/assets/figma.svg">
-          <h3 :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Figma</h3>
-          <p :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Collaborative design tool.</p>
+        <a
+          class="card card-3"
+          :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+        >
+          <img
+            class="card-header"
+            :class="{ 'light-header': !isDarkMode, 'dark-header': isDarkMode }"
+            src="@/assets/figma.svg"
+          />
+          <h3 :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Figma
+          </h3>
+          <p :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Collaborative design tool.
+          </p>
         </a>
       </transition>
       <transition appear appear-active-class="animated flipInX">
-        <a class="card card-4" :class="{'light-card': !isDarkMode, 'dark-card': isDarkMode}">
-          <img class="card-header" :class="{'light-header': !isDarkMode, 'dark-header': isDarkMode}" src="@/assets/contentful.svg">
-          <h3 :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Contentful</h3>
-          <p :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Content management system.</p>
+        <a
+          class="card card-4"
+          :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+        >
+          <img
+            class="card-header"
+            :class="{ 'light-header': !isDarkMode, 'dark-header': isDarkMode }"
+            src="@/assets/contentful.svg"
+          />
+          <h3 :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Contentful
+          </h3>
+          <p :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Content management system.
+          </p>
         </a>
       </transition>
       <transition appear appear-active-class="animated flipInX">
-        <a class="card card-5" :class="{'light-card': !isDarkMode, 'dark-card': isDarkMode}">
-          <img class="card-header" :class="{'light-header': !isDarkMode, 'dark-header': isDarkMode}" src="@/assets/dropbox.svg">
-          <h3 :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Dropbox</h3>
-          <p :class="{'light-text': isDarkMode, 'dark-text': !isDarkMode}">Storage space in the cloud.</p>
+        <a
+          class="card card-5"
+          :class="{ 'light-card': !isDarkMode, 'dark-card': isDarkMode }"
+        >
+          <img
+            class="card-header"
+            :class="{ 'light-header': !isDarkMode, 'dark-header': isDarkMode }"
+            src="@/assets/dropbox.svg"
+          />
+          <h3 :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Dropbox
+          </h3>
+          <p :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
+            Storage space in the cloud.
+          </p>
         </a>
       </transition>
     </div>
   </div>
 </template>
-<script lang="ts">
-  import { Component, Vue } from "vue-property-decorator";
-  import Header from "@/components/Header.vue";
-  export default{
-    name: "Team",
-    components: {
-      Header
-    },
-    computed: {
-      isDarkMode() {
-        return this.$store.getters.isDarkMode;
-      }
+<script>
+import { Component, Vue } from "vue-property-decorator";
+import Header from "@/components/Header.vue";
+
+export default {
+  name: "Team",
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
     }
-  };
+  },
+  components: {
+    Header
+  }
+};
 </script>
 <style scoped lang="scss">
 h2 {
@@ -76,7 +132,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   margin-left: 25px;
 }
 
@@ -84,15 +140,15 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  align-items: space-evenly; 
+  align-items: space-evenly;
 }
 
 .card {
   width: 100%;
-  max-width: 200px;
+  max-width: 180px;
   height: 320px;
   border-radius: 10px;
-  margin: 20px; 
+  margin: 20px;
 }
 
 .light-card {
@@ -149,5 +205,4 @@ p {
 .dark-card {
   background: $super-dark-blue;
 }
-
 </style>
