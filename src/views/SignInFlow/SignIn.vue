@@ -55,6 +55,7 @@ export default {
     }
   },
   mounted() {
+    // enable netlify identity
     netlifyIdentityWidget.open();
   },
   components: {
