@@ -12,17 +12,20 @@
       <h4 :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }">
         Sign into Design+Code HQ
       </h4>
-      <input
-        :class="{ 'light-field': isDarkMode, 'dark-field': !isDarkMode }"
-        type="email"
-        placeholder="Email"
-      />
-      <input
-        :class="{ 'light-field': isDarkMode, 'dark-field': !isDarkMode }"
-        type="password"
-        placeholder="Password"
-      />
-      <button>Sign In</button>
+      <!-- prevent is instead of e.preventdefault() -->
+      <form @submit.prevent="onSubmit">
+        <input
+          :class="{ 'light-field': isDarkMode, 'dark-field': !isDarkMode }"
+          type="email"
+          placeholder="Email"
+        />
+        <input
+          :class="{ 'light-field': isDarkMode, 'dark-field': !isDarkMode }"
+          type="password"
+          placeholder="Password"
+        />
+        <button>Sign In</button>
+      </form>
       <router-link
         :class="{ 'light-text': isDarkMode, 'dark-text': !isDarkMode }"
         to="/recover"
@@ -34,11 +37,11 @@
   </div>
 </template>
 <script>
-import * as netlifyIdentityWidget from "netlify-identity-widget";
 import { Component, Vue } from "vue-property-decorator";
 import Header from "@/components/Header.vue";
 import RequestAccount from "@/components/RequestAccount.vue";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
+import { auth } from "@/main";
 
 export default {
   name: "SignIn",
@@ -52,11 +55,10 @@ export default {
     // method toggleDarkMode() is only necessary to switch darkmode
     toggleDarkMode() {
       this.$store.commit("toggleDarkMode");
+    },
+    onSubmit() {
+      alert("submitted!");
     }
-  },
-  mounted() {
-    // enable netlify identity
-    netlifyIdentityWidget.open();
   },
   components: {
     RequestAccount,
