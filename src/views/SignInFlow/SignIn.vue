@@ -18,11 +18,14 @@
           :class="{ 'light-field': isDarkMode, 'dark-field': !isDarkMode }"
           type="email"
           placeholder="Email"
+          v-model="email"
+          required
         />
         <input
           :class="{ 'light-field': isDarkMode, 'dark-field': !isDarkMode }"
           type="password"
           placeholder="Password"
+          v-model="password"
         />
         <button>Sign In</button>
       </form>
@@ -57,7 +60,17 @@ export default {
       this.$store.commit("toggleDarkMode");
     },
     onSubmit() {
-      alert("submitted!");
+      // "this" here is specifying v-model above
+      const email = this.email;
+      const password = this.password;
+      // add parameter from the element which defined as v-model above
+
+      auth.login(email, password).then(response => {
+        // alert("Response: " + response); // object object
+        alert("Response: " + response.email);
+      }).catch(error => {
+        alert("Error: " + error);
+      });
     }
   },
   components: {
