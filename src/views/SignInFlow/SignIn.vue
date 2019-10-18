@@ -54,6 +54,13 @@ export default {
       return this.$store.getters.isDarkMode;
     }
   },
+  data() {
+    return {
+      // null = no value
+      email: null,
+      password: null
+    };
+  },
   methods: {
     // method toggleDarkMode() is only necessary to switch darkmode
     toggleDarkMode() {
@@ -65,12 +72,17 @@ export default {
       const password = this.password;
       // add parameter from the element which defined as v-model above
 
-      auth.login(email, password).then(response => {
-        // alert("Response: " + response); // object object
-        alert("Response: " + response.email);
-      }).catch(error => {
-        alert("Error: " + error);
-      });
+      auth
+        .login(email, password, true)
+        .then(response => {
+          console.log('hi')
+          // alert("Response: " + response); // object object
+          // $router below is used in main.js
+          this.$router.replace("/");
+        })
+        .catch(error => {
+          alert("Error: " + error);
+        });
     }
   },
   components: {
