@@ -75,7 +75,6 @@ export default {
       auth
         .login(email, password, true)
         .then(response => {
-          console.log('hi')
           // alert("Response: " + response); // object object
           // $router below is used in main.js
           this.$router.replace("/");

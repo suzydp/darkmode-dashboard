@@ -17,7 +17,7 @@ export const auth = new GoTrue({
   // url is from: https://app.netlify.com/sites/YOUR_SITE_NAME/identity
   APIUrl: "https://szdp-darkroom.netlify.com/.netlify/identity",
   setCookie: true
-})
+});
 
 new Vue({
   router,

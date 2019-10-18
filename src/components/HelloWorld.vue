@@ -6,15 +6,14 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   // props is coming from parent component
   props: {
     msg: String
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <!-- lang="" describes what preprocessor we're using -->
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

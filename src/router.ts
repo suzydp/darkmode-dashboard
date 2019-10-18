@@ -55,15 +55,15 @@ router.beforeEach((to, from, next) => {
   // if the user was logging in, return current user's data, if not, return nothing
   const currentUser = netlifyIdentityWidget.currentUser();
   const requiresAuth = to.matched.some(record => {
-    return record.meta.requiresAuth
-  })
+    return record.meta.requiresAuth;
+  });
 
   // if user wasn't logging in, return signin page, if not, move to next page
   if (requiresAuth && !currentUser) {
     next("signin");
   } else {
-    next()
+    next();
   }
-})
+});
 
 export default router;
