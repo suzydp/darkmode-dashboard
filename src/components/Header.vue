@@ -10,11 +10,23 @@
   </div>
 </template>
 <script>
+import { auth } from "@/main";
+
 export default {
   name: "Header",
   methods: {
     onClick() {
-      alert ("Successfully logout!")
+      const user = auth.currentUser();
+
+      user
+        .logout()
+        .then(response => {
+          alert("Successfully logged out. Sign in to see contents.")
+          this.$router.replace("/signin");
+        })
+        .catch(error => {
+          alert("Error: ", error)
+        })
     }
   }
 };
