@@ -78,6 +78,7 @@ export default {
           // alert("Response: " + response); // object object
           // $router below is used in main.js
           this.$router.replace("/");
+          alert("successfully logged in!");
         })
         .catch(error => {
           alert("Error: " + error);

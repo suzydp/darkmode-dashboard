@@ -5,11 +5,17 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/team">Team</router-link> |
     <router-link to="/signin">Sign in</router-link> |
-    <router-link to="/request">Request</router-link>
+    <router-link to="/request">Request</router-link> | 
+    <a @click="onClick">Logout</a>
   </div>
 </template>
 <script>
 export default {
-  name: "Header"
+  name: "Header",
+  methods: {
+    onClick() {
+      alert ("Successfully logout!")
+    }
+  }
 };
 </script>
