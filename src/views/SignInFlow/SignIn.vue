@@ -4,6 +4,7 @@
     class="container"
     :class="{ 'light-background': !isDarkMode, 'dark-backgrond': isDarkMode }"
   >
+    <Notification v-if="hasText" v-bind:text="text"/>
     <RequestAccount />
     <div class="login">
       <!-- if isDarkMode is true, apply images for darkmode -->
@@ -43,23 +44,31 @@
 import { Component, Vue } from "vue-property-decorator";
 import Header from "@/components/Header.vue";
 import RequestAccount from "@/components/RequestAccount.vue";
+import Notification from "@/components/Notification.vue";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
 import { auth } from "@/main";
 
 export default {
   name: "SignIn",
-  // init state
-  computed: {
-    isDarkMode() {
-      return this.$store.getters.isDarkMode;
-    }
+  components: {
+    RequestAccount,
+    ThemeSwitch,
+    Notification,
   },
   data() {
     return {
       // null = no value
       email: null,
-      password: null
+      password: null,
+      hasText: false,
+      text: "",
     };
+  },
+  // init state
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    }
   },
   methods: {
     // method toggleDarkMode() is only necessary to switch darkmode
@@ -85,9 +94,12 @@ export default {
         });
     }
   },
-  components: {
-    RequestAccount,
-    ThemeSwitch
+  mounted() {
+    const params = this.$route.params;
+    if (params.userLoggedOut) {
+      this.hasText = true;
+      this.text = "You have successfully logged out."
+    }
   }
 };
 </script>

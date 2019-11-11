@@ -17,16 +17,14 @@ export default {
   methods: {
     onClick() {
       const user = auth.currentUser();
-
-      user
-        .logout()
-        .then(response => {
-          alert("Successfully logged out. Sign in to see contents.")
-          this.$router.replace("/signin");
-        })
-        .catch(error => {
-          alert("Error: ", error)
-        })
+      user.logout().then(response => {
+        this.$router.push({
+          name: "signin",
+          params: { userLoggedOut: true }
+        });
+      }).catch( error => {
+        alert("Error: ", error)
+      })
     }
   }
 };
