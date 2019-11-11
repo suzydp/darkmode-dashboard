@@ -1,12 +1,29 @@
 <template>
-	<div class="bubble">
-		<div class="message">{{ text }}</div>
-	</div>
+	<transition 
+		enter-active-class="animated fadeInDown"
+		leave-active-class="animated fadeOutRight"
+	>
+		<div v-show="show" class="bubble">
+			<div class="message">{{ text }}</div>
+		</div>
+	</transition>
 </template>
 
 <script>
 	export default {
 		name: "Notification",
+		data() {
+			return {
+				show: false
+			}
+		},
+		mounted() {
+			this.show = true;
+			setTimeout( () => {
+				// this show(notification) will be hidden after 3sec
+				this.show = false;
+			}, 3000)
+		},
 		props: {
 			text: ""
 		}
