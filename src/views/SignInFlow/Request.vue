@@ -38,6 +38,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import Notification from "@/components/Notification.vue";
 import ThemeSwitch from "@/components/ThemeSwitch.vue";
+import dotenv from "dotenv";
 
 export default {
   name: "Request",
@@ -51,7 +52,8 @@ export default {
       email: null,
       password: null,
       hasText: false,
-      text: ""
+      text: "",
+      // key: process.env.VUE_APP_SLACK_API
     };
   },
   // init state
@@ -68,8 +70,21 @@ export default {
     onSubmit() {
       // "this" here is specifying v-model above
       const email = this.email;
+      const apiKey = process.env.VUE_APP_SLACK_API;
 
       // Slack API logic
+      let slackURL = new URL("https://slack.com/api/chat.postMessage");
+
+      const data = {
+        token: process.env.VUE_APP_SLACK_API,
+        channel: "hq-test",
+        text: `${email} has requested admin access to HQ. Please go to netlify to invite them.`
+      }
+      console.log(data);
+
+      slackURL.search = new URLSearchParams(data)
+
+      fetch(slackURL);
     }
   },
   mounted() {
