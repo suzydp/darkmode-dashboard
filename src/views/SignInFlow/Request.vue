@@ -52,8 +52,7 @@ export default {
       email: null,
       password: null,
       hasText: false,
-      text: "",
-      // key: process.env.VUE_APP_SLACK_API
+      text: ""
     };
   },
   // init state
@@ -79,12 +78,23 @@ export default {
         token: process.env.VUE_APP_SLACK_API,
         channel: "hq-test",
         text: `${email} has requested admin access to HQ. Please go to netlify to invite them.`
-      }
-      console.log(data);
+      };
 
-      slackURL.search = new URLSearchParams(data)
+      slackURL.search = new URLSearchParams(data);
 
-      fetch(slackURL);
+      fetch(slackURL)
+        .then(() => {
+          this.$router.push({
+            name: "signin",
+            params: {
+              userRequestedAccount: true,
+              email: email
+            }
+          });
+        })
+        .catch(error => {
+          alert("Error: ", error);
+        });
     }
   },
   mounted() {

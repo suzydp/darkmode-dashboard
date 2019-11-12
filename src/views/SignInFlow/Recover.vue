@@ -67,15 +67,20 @@ export default {
       const password = this.password;
       // add parameter from the element which defined as v-model above
 
-      auth.requestPasswordRecovery(email).then(() => {
-        this.$router.push({
-          name: "signin",
-          params: {
-            userRecoveredAccount: true,
-            email: email
-          }
+      auth
+        .requestPasswordRecovery(email)
+        .then(() => {
+          this.$router.push({
+            name: "signin",
+            params: {
+              userRecoveredAccount: true,
+              email: email
+            }
+          });
+        })
+        .catch(error => {
+          alert("Error: ", error);
         });
-      });
     }
   },
   mounted() {
