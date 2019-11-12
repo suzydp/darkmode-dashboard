@@ -4,7 +4,7 @@
     class="container"
     :class="{ 'light-background': !isDarkMode, 'dark-backgrond': isDarkMode }"
   >
-    <Notification v-if="hasText" v-bind:text="text"/>
+    <Notification v-if="hasText" v-bind:text="text" />
     <RequestAccount />
     <div class="login">
       <!-- if isDarkMode is true, apply images for darkmode -->
@@ -53,7 +53,7 @@ export default {
   components: {
     RequestAccount,
     ThemeSwitch,
-    Notification,
+    Notification
   },
   data() {
     return {
@@ -61,7 +61,7 @@ export default {
       email: null,
       password: null,
       hasText: false,
-      text: "",
+      text: ""
     };
   },
   // init state
@@ -98,7 +98,7 @@ export default {
     const params = this.$route.params;
     if (params.userLoggedOut) {
       this.hasText = true;
-      this.text = "You have successfully logged out."
+      this.text = "You have successfully logged out.";
     }
   }
 };

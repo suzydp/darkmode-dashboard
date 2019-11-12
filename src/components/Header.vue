@@ -5,7 +5,7 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/team">Team</router-link> |
     <router-link to="/signin">Sign in</router-link> |
-    <router-link to="/request">Request</router-link> | 
+    <router-link to="/request">Request</router-link> |
     <a @click="onClick">Logout</a>
   </div>
 </template>
@@ -17,14 +17,17 @@ export default {
   methods: {
     onClick() {
       const user = auth.currentUser();
-      user.logout().then(response => {
-        this.$router.push({
-          name: "signin",
-          params: { userLoggedOut: true }
+      user
+        .logout()
+        .then(response => {
+          this.$router.push({
+            name: "signin",
+            params: { userLoggedOut: true }
+          });
+        })
+        .catch(error => {
+          alert("Error: ", error);
         });
-      }).catch( error => {
-        alert("Error: ", error)
-      })
     }
   }
 };
