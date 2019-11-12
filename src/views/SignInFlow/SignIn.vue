@@ -71,10 +71,6 @@ export default {
     }
   },
   methods: {
-    // method toggleDarkMode() is only necessary to switch darkmode
-    toggleDarkMode() {
-      this.$store.commit("toggleDarkMode");
-    },
     onSubmit() {
       // "this" here is specifying v-model above
       const email = this.email;
@@ -99,6 +95,9 @@ export default {
     if (params.userLoggedOut) {
       this.hasText = true;
       this.text = "You have successfully logged out.";
+    } else if (params.userRecoveredAccount) {
+      this.hasText = true;
+      this.text = `A recovery email has been sent to ${params.email}`;
     }
   }
 };
