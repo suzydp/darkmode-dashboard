@@ -25,25 +25,47 @@ export default {
   },
   methods: {
     toggleDays() {
-      // change state
+      // active only days
       this.$refs.days.style.color = "white";
-      // import days style which is used for active toggle
       this.$refs.days.style.background = '#56CCF2';
       this.$refs.days.style.borderRadius = '4px';
+      
+      // inactive other refs
+      this.$refs.weeks.style.color = "#5B6175";
+      this.$refs.weeks.style.background = 'none';
+      this.$refs.weeks.style.borderRadius = 'none';
+
+      this.$refs.months.style.color = "#5B6175";
+      this.$refs.months.style.background = 'none';
+      this.$refs.months.style.borderRadius = 'none';
     },
     toggleWeeks() {
-      // enable same style above
+      // active only weeks
+      this.$refs.days.style.color = "#5B6175";
+      this.$refs.days.style.background = 'none';
+      this.$refs.days.style.borderRadius = 'none';
+
       this.$refs.weeks.style.color = "white";
       this.$refs.weeks.style.background = '#56CCF2';
       this.$refs.weeks.style.borderRadius = '4px';
+
+      this.$refs.months.style.color = "#5B6175";
+      this.$refs.months.style.background = 'none';
+      this.$refs.months.style.borderRadius = 'none';
     },
     toggleMonths() {
-      // enable same style above
+      // active only months
+      this.$refs.days.style.color = "#5B6175";
+      this.$refs.days.style.background = 'none';
+      this.$refs.days.style.borderRadius = 'none';
+
+      this.$refs.weeks.style.color = "#5B6175";
+      this.$refs.weeks.style.background = 'none';
+      this.$refs.weeks.style.borderRadius = 'none';
+
       this.$refs.months.style.color = "white";
       this.$refs.months.style.background = '#56CCF2';
       this.$refs.months.style.borderRadius = '4px';
-
-      // but you're gonna notice active state can't change by ourselves..
     }
   }
 };
@@ -77,6 +99,10 @@ h1 {
   flex-wrap: nowrap;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 @mixin toggle-settings {
@@ -89,6 +115,10 @@ h1 {
 
 .days {
   @include toggle-settings;
+  /* apply default styles for when loaded page */
+  background: $teal;	
+  border-radius: 4px;	
+  color: $white;
 }
 
 .weeks {
