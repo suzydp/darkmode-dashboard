@@ -11,17 +11,37 @@
           <div ref="months" class="months" @click="toggleMonths">Months</div>
         </div>
       </div>
+      <apexchart width="100%" type="area" :options="chartOptions" :series="series"></apexchart>
     </div>
   </div>
 </template>
 
 <script>
+import VueApexCharts from 'vue-apexcharts';
 import Header from "@/components/Header.vue";
 
 export default {
   name: "Home",
   components: {
-    Header
+    Header,
+    // register VueApexCharts as apexchart
+    apexchart: VueApexCharts
+  },
+  data: function() {
+    return {
+      chartOptions: {
+        chart: {
+          id: 'vuechart-example'
+        },
+        xaxis: {
+          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+        }
+      },
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 35, 50, 49, 60, 70, 91]
+      }]
+    }
   },
   methods: {
     toggleDays() {
