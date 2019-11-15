@@ -3,12 +3,17 @@
   <!-- move from App.vue -->
   <div id="nav">
     <div class="nav-1">
-      <img src="@/assets/DCHQ-small.svg">
-      <router-link to="/" v-bind:class="{ 'light-nav' : !isDarkMode, 'dark-nav' : isDarkMode }">Home</router-link> |
-      <router-link to="/team">Manage Users</router-link> |
+      <img src="@/assets/DCHQ-small.svg" />
+      <router-link
+        to="/"
+        v-bind:class="{ 'light-nav': !isDarkMode, 'dark-nav': isDarkMode }"
+      >
+        Home
+      </router-link>
+      | <router-link to="/team">Manage Users</router-link> |
       <router-link to="/team">Team</router-link>
     </div>
-    <a @click="onClick">Logout<img src="@/assets/logout.svg"></a>
+    <a @click="onClick">Logout<img src="@/assets/logout.svg"/></a>
   </div>
 </template>
 <script>
