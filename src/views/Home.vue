@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Header from "@/components/Header.vue";
 
 export default {
@@ -25,13 +25,25 @@ export default {
   },
   methods: {
     toggleDays() {
-      
+      // change state
+      this.$refs.days.style.color = "white";
+      // import days style which is used for active toggle
+      this.$refs.days.style.background = '#56CCF2';
+      this.$refs.days.style.borderRadius = '4px';
     },
     toggleWeeks() {
-
+      // enable same style above
+      this.$refs.weeks.style.color = "white";
+      this.$refs.weeks.style.background = '#56CCF2';
+      this.$refs.weeks.style.borderRadius = '4px';
     },
     toggleMonths() {
+      // enable same style above
+      this.$refs.months.style.color = "white";
+      this.$refs.months.style.background = '#56CCF2';
+      this.$refs.months.style.borderRadius = '4px';
 
+      // but you're gonna notice active state can't change by ourselves..
     }
   }
 };
@@ -77,9 +89,6 @@ h1 {
 
 .days {
   @include toggle-settings;
-  background: $teal;
-  border-radius: 4px;
-  color: $white;
 }
 
 .weeks {
