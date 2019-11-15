@@ -11,7 +11,7 @@
           <div ref="months" class="months" @click="toggleMonths">Months</div>
         </div>
       </div>
-      <apexchart width="100%" type="area" :options="chartOptions" :series="series"></apexchart>
+      <apexchart width="800px" type="area" :options="chartOptions" :series="series"></apexchart>
     </div>
   </div>
 </template>
@@ -30,17 +30,53 @@ export default {
   data: function() {
     return {
       chartOptions: {
+        // color is binded with [ '1st one', '2nd one' ]
+        colors: ["#14f1d9", "#7b42f6"],
+        legend: {
+          labels: {
+            colors: ["white"]
+          },
+          position: "top"
+        },
+        tooltip: {
+          theme: "dark"
+        },
+        grid: {
+          xaxis: {
+            lines: {
+              show: true
+            }
+          },
+          yaxis: {
+            lines: {
+              show: false
+            }
+          }
+        },
         chart: {
           id: 'vuechart-example'
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+          type: "datetime"
         }
       },
-      series: [{
-        name: 'series-1',
-        data: [30, 40, 35, 50, 49, 60, 70, 91]
-      }]
+      // data bundle
+      series: [
+        {
+          name: 'active users',
+          data: [
+            [new Date("January 1, 2019"), 30],
+            [new Date("January 5, 2019"), 40],
+          ]
+        },
+        {
+          name: 'new users',
+          data: [
+            [new Date("January 1, 2019"), 80],
+            [new Date("January 5, 2019"), 20],
+          ]
+        }
+      ],
     }
   },
   methods: {
@@ -95,6 +131,7 @@ export default {
 .container {
   padding-left: 15%;
   padding-right: 15%;
+  flex-wrap: wrap;
 }
 
 .spread {

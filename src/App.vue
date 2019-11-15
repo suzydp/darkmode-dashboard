@@ -25,6 +25,13 @@ body {
   background: $dark-blue;
 }
 
+/* apply styles for apexcharts */
+line,
+text {
+  stroke: $light-gray;
+  opacity: 0.2;
+}
+
 h1 {
   @include heading-1;
 }
