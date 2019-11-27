@@ -1,7 +1,7 @@
 <!-- component declaration - like a div -->
 <template>
   <!-- move from App.vue -->
-  <div id="nav">
+  <div id="nav" :class="{'nav-light': !isDarkMode, 'nav-dark': isDarkMode}">
     <div class="nav-1">
       <img src="@/assets/DCHQ-small.svg" />
       <router-link
@@ -10,7 +10,8 @@
       >
         Home
       </router-link>
-      | <router-link to="/team">Manage Users</router-link> |
+      | <router-link to="/manage" 
+        :class="{ 'light-nav': !isDarkMode, 'dark-nav': isDarkMode }" >Manage Users</router-link> |
       <router-link to="/team">Team</router-link>
     </div>
     <a @click="onClick">Logout<img src="@/assets/logout.svg"/></a>
@@ -59,7 +60,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: $super-dark-blue;
   box-sizing: border-box;
   width: 100%;
   padding: 15px 15%;

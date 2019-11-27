@@ -3,7 +3,7 @@
     <Header />
     <div class="container">
       <div class="spread">
-        <h1>Traffic Overview</h1>
+        <h1 :class="{'dark': !isDarkMode, 'light': isDarkMode}">Traffic Overview</h1>
         <div class="toggle">
           <!-- ref will refer the methods below -->
           <div ref="days" class="days" @click="toggleDays">Days</div>
@@ -23,6 +23,11 @@ import Header from "@/components/Header.vue";
 
 export default {
   name: "Home",
+  computed: {
+    isDarkMode() {
+      return this.$store.getters.isDarkMode;
+    }
+  },
   components: {
     Header,
     // register VueApexCharts as apexchart
@@ -35,7 +40,7 @@ export default {
         colors: ["#14f1d9", "#7b42f6"],
         legend: {
           labels: {
-            colors: ["white"]
+            colors: [this.$store.getters.isDarkMode ? "white" : "black"]
           },
           position: "top"
         },
@@ -142,8 +147,12 @@ export default {
   width: 100%;
 }
 
-h1 {
-  @include heading-3;
+h1.dark {
+  @include heading-3($black);
+}
+
+h1.light {
+  @include heading-3($white);
 }
 
 .toggle {
