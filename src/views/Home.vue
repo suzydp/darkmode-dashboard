@@ -12,7 +12,8 @@
         </div>
       </div>
       <apexchart width="800px" type="area" :options="chartOptions" :series="series"></apexchart>
-      <iframe width="600" height="450" src="https://datastudio.google.com/embed/reporting/812aaa39-ded9-4ff8-97ed-d160bc76e0fa/page/SkS7" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <iframe v-if="isDarkMode" width="600" height="450" src="https://datastudio.google.com/embed/reporting/812aaa39-ded9-4ff8-97ed-d160bc76e0fa/page/SkS7" frameborder="0" style="border:0" allowfullscreen></iframe>
+      <iframe v-if="!isDarkMode" width="600" height="450" src="https://datastudio.google.com/embed/reporting/b2ca20fd-5e1f-4afe-95a5-801354e433c5/page/SkS7" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
   </div>
 </template>
