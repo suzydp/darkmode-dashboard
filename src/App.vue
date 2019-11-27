@@ -163,4 +163,14 @@ button {
 .dark-link {
   color: rgba(0, 0, 0, 0.3);
 }
+
+.light-box {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-box {
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
 </style>

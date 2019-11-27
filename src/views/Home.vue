@@ -4,7 +4,7 @@
     <div class="container">
       <div class="spread">
         <h1 :class="{'dark': !isDarkMode, 'light': isDarkMode}">Traffic Overview</h1>
-        <div class="toggle">
+        <div class="toggle" :class="{'light-box': isDarkMode, 'dark-box': !isDarkMode}">
           <!-- ref will refer the methods below -->
           <div ref="days" class="days" @click="toggleDays">Days</div>
           <div ref="weeks" class="weeks" @click="toggleWeeks">Weeks</div>
@@ -164,8 +164,6 @@ h1.light {
   padding: 5px;
   display: flex;
   flex-wrap: nowrap;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
 
   &:hover {
     cursor: pointer;
