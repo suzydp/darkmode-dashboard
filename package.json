@@ -10,7 +10,7 @@
   "dependencies": {
     "@types/netlify-identity-widget": "^1.4.1",
     "animate.css": "^3.7.2",
-    "apexcharts": "^3.10.1",
+    "apexcharts": "^3.24.0",
     "core-js": "^2.6.5",
     "dotenv": "^8.2.0",
     "gotrue-js": "^0.9.25",
